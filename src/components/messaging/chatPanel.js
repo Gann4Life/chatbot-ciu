@@ -12,7 +12,7 @@ const ChatPanel = () => {
 	function sendMessageAsUser(newMessage) {
 		newMessage.profileURL = "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png";
 		logNewMessage(newMessage);
-		getSecondBotResponse(newMessage);
+		getThirdBotResponse(newMessage);
 	}
 
 	function logNewMessage(newMessage) {
@@ -70,6 +70,46 @@ const ChatPanel = () => {
 			}
 
 			logNewMessage(botMessage);
+		} catch (error) {
+			console.error(error);
+		}
+	}
+
+	async function getThirdBotResponse(message) {
+		const encodedParams = new URLSearchParams();
+		encodedParams.set('in', message);
+		encodedParams.set('op', 'in');
+		encodedParams.set('cbot', '1');
+		encodedParams.set('SessionID', 'RapidAPI1');
+		encodedParams.set('cbid', '1');
+		encodedParams.set('key', 'RHMN5hnQ4wTYZBGCF3dfxzypt68rVP');
+		encodedParams.set('ChatSource', 'RapidAPI');
+		encodedParams.set('duration', '1');
+
+		const url = 'https://robomatic-ai.p.rapidapi.com/api';
+		const options = {
+		  method: 'POST',
+		  headers: {
+		    'content-type': 'application/x-www-form-urlencoded',
+		    'X-RapidAPI-Key': process.env.REACT_APP_RAPIDAPI_KEY,
+		    'X-RapidAPI-Host': 'robomatic-ai.p.rapidapi.com'
+		  },
+		  body: encodedParams
+		};
+
+		try {
+			const response = await fetch(url, options);
+			const result = await response.text();
+			const resultJSON = JSON.parse(result);
+
+			const botMessage = {
+				message: resultJSON.out,
+				author: resultJSON.who,
+				profileURL: botProfileURL
+			}
+
+			logNewMessage(botMessage)
+
 		} catch (error) {
 			console.error(error);
 		}
