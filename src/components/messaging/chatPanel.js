@@ -10,6 +10,7 @@ const ChatPanel = () => {
 	const userProfileURL = "";
 
 	function sendMessageAsUser(newMessage) {
+		newMessage.profileURL = "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png";
 		logNewMessage(newMessage);
 		getSecondBotResponse(newMessage);
 	}
@@ -76,7 +77,7 @@ const ChatPanel = () => {
 
 	return (
 		<div className="chat-panel">
-			<h1>Chat panel</h1>
+			<h1 className="center">Chat panel</h1>
 			<ChatArea
 				messagesList={messages}
 			/>

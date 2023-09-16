@@ -31,16 +31,23 @@ body {
 .chat-area {
     height: 75vh;
     overflow-y: scroll;
+    scroll-behavior: smooth;
     /*background: #00E0FF;*/
 }
 
 .chat-panel {
+    padding: 0px 25%;
     /*background: red;*/
     /*background: #00E0FF;*/
 }
 
 .message-input-area {
     margin-top: 25px;
+    display: flex;
+    justify-content: center;
+}
+
+.center {
     display: flex;
     justify-content: center;
 }
