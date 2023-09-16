@@ -76,6 +76,8 @@ const ChatPanel = () => {
 	}
 
 	async function getThirdBotResponse(message) {
+		// Using robomatic.ai
+
 		const encodedParams = new URLSearchParams();
 		encodedParams.set('in', message);
 		encodedParams.set('op', 'in');

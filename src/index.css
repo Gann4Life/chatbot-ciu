@@ -36,7 +36,7 @@ body {
 }
 
 .chat-panel {
-    padding: 0px 25%;
+    padding: 0px 10%;
     /*background: red;*/
     /*background: #00E0FF;*/
 }
@@ -45,6 +45,18 @@ body {
     margin-top: 25px;
     display: flex;
     justify-content: center;
+}
+
+.message-input-area button {
+    border: none;
+    border-radius: 25px;
+}
+
+.message-input-area input {
+    border: none;
+    border-radius: 25px;
+    margin-right: 25px;
+    padding-left: 15px;
 }
 
 .center {
