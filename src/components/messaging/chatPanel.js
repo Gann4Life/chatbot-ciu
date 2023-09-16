@@ -24,7 +24,7 @@ const ChatPanel = () => {
 		const options = {
 		  method: 'GET',
 		  headers: {
-		    'X-RapidAPI-Key': 'f20df8041fmshb7756c276bfb5afp142e7ejsn3b7574fd4df2',
+		    'X-RapidAPI-Key': process.env.REACT_APP_RAPIDAPI_KEY,
 		    'X-RapidAPI-Host': 'ai-chatbot.p.rapidapi.com'
 		  }
 		};
@@ -47,13 +47,13 @@ const ChatPanel = () => {
 			logNewMessage({message: "Sorry, I can't answer right now.", author: "BOT", profileURL: botProfileURL})
 		}
 	}
-	// YES, I know that the api keys are exposed. They're for testing purposes.
+
 	async function getSecondBotResponse(message){
 		const url = "https://chat-gpt-ai-bot.p.rapidapi.com/GenerateAIWritter?prompt=" + message.message;
 		const options = {
 		  method: 'GET',
 		  headers: {
-		    'X-RapidAPI-Key': 'f20df8041fmshb7756c276bfb5afp142e7ejsn3b7574fd4df2',
+		    'X-RapidAPI-Key': process.env.REACT_APP_RAPIDAPI_KEY,
 		    'X-RapidAPI-Host': 'chat-gpt-ai-bot.p.rapidapi.com'
 		  }
 		};
