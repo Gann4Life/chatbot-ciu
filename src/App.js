@@ -1,25 +1,14 @@
-import logo from './logo.svg';
-import './App.css';
+import ChatPanel from "./components/messaging/chatPanel";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const list = ["test1", "test2", "test3"]
+
+	return (
+		<div>
+			{/*<h1>ChatBot App</h1>*/}
+			<ChatPanel></ChatPanel>
+		</div>
+	);
 }
 
 export default App;
