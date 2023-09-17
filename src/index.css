@@ -1,44 +1,108 @@
+:root {
+    --main-color: #ffffff;
+    --secondary-color: #76ad4a;
+    --detail-color: white;
+}
+
+html {
+    font-family: 'Roboto', sans-serif;
+}
+
+html, body {
+    min-height: 100%;
+    margin: 0;
+}
+
 body {
-    background: linear-gradient(180deg, #00E0FF 0%, #4E8AFE 100%);
+    background: linear-gradient(180deg, var(--main-color) 0%, var(--secondary-color) 100%);
     background-repeat: no-repeat;
     background-size: cover;
+}
 
-    height: 100vh;
-    overflow: hidden;
+.chat-area::-webkit-scrollbar {
+    width: 12px;
+}
+
+.chat-area::-webkit-scrollbar-track {
+    background: var(--detail-color);
+    border-radius: 10px;
+}
+
+.chat-area::-webkit-scrollbar-thumb {
+    background: var(--secondary-color);
+    border-radius: 10px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    padding: 0 10%;
+
+    background: var(--secondary-color);
+    color: white;
+}
+
+.nav-routes {
+    display: flex;
+}
+
+.nav-btn {
+    text-decoration: none;
+    padding: 0 3vw;
+    transition: background 0.1s;
+    color: white;
+}
+
+.nav-btn > p {
+    /*position: relative;*/
+    padding: 25% 0;
+}
+
+.nav-btn:hover {
+    background: var(--main-color);
 }
 
 .message-container {
     display: flex;
-    margin-bottom: 0px;
+    margin-bottom: 0;
 }
 
 .message-container img {
     height: 50px;
     aspect-ratio: 1/1;
     border-radius: 100%;
+    margin-inline: 20px;
+}
+
+/* This class is assigned to messages sent by the user*/
+.message-client {
+    display: flex;
+    justify-content: end;
+    flex-direction: row-reverse;
 }
 
 .message-bubble {
-    background: #4E8AFE;
-    border-radius: 0px 25px 25px 25px;
+    background: var(--secondary-color);
+    max-width: 50%;
+    border-radius: 25px;
     padding: 5px 20px;
     margin-top: 25px;
-    margin-inline: 20px;
     color: white;
-    box-shadow: 5px 5px 10px #00000030;
-}
-
-.chat-area {
-    height: 75vh;
-    overflow-y: scroll;
-    scroll-behavior: smooth;
-    /*background: #00E0FF;*/
+    /*box-shadow: 5px -5px 10px #00000030;*/
 }
 
 .chat-panel {
     padding: 0px 10%;
-    /*background: red;*/
-    /*background: #00E0FF;*/
+    margin-top: 50px;
+
+    transition: padding 1s;
+}
+
+.chat-area {
+    max-height: 50vh;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    transition: height 1s;
 }
 
 .message-input-area {
@@ -49,11 +113,13 @@ body {
 
 .message-input-area button {
     border: none;
+    height: 25px;
     border-radius: 25px;
 }
 
 .message-input-area input {
     border: none;
+    height: 25px;
     border-radius: 25px;
     margin-right: 25px;
     padding-left: 15px;
@@ -62,4 +128,21 @@ body {
 .center {
     display: flex;
     justify-content: center;
+}
+
+@media (max-width: 482px) {
+    .message-container > img {
+        display: none;
+    }
+
+    .chat-panel {
+        padding: 0;
+    }
+}
+
+@media(prefers-color-scheme: dark) {
+    :root {
+        --main-color: gray;
+        --secondary-color: black;
+    }
 }

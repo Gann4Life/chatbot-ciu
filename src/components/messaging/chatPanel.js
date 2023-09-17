@@ -119,7 +119,6 @@ const ChatPanel = () => {
 
 	return (
 		<div className="chat-panel">
-			<h1 className="center">Chat panel</h1>
 			<ChatArea
 				messagesList={messages}
 			/>

@@ -1,10 +1,11 @@
 import ChatPanel from "./components/messaging/chatPanel";
+import Navbar from "./components/navbar";
 
 function App() {
 	return (
 		<div>
-			{/*<h1>ChatBot App</h1>*/}
-			<ChatPanel></ChatPanel>
+			<Navbar/>
+			<ChatPanel/>
 		</div>
 	);
 }
