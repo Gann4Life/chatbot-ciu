@@ -12,7 +12,7 @@ const ChatPanel = () => {
 	function sendMessageAsUser(newMessage) {
 		newMessage.profileURL = userProfileURL;
 		logNewMessage(newMessage);
-		getSecondBotResponse(newMessage);
+		getThirdBotResponse(newMessage);
 	}
 
 	function sendMessageAsBot(newMessage) {
@@ -29,6 +29,7 @@ const ChatPanel = () => {
 	}
 
 
+	// Mid quality chatbot
 	async function getFirstBotResponse(message){
 		const url = "https://ai-chatbot.p.rapidapi.com/chat/free?message=" + message.message + "&uid=user1";
 		const options = {
@@ -51,6 +52,7 @@ const ChatPanel = () => {
 		}
 	}
 
+	// GOOD QUALITY CHATBOT
 	async function getSecondBotResponse(message){
 		const url = "https://chat-gpt-ai-bot.p.rapidapi.com/GenerateAIWritter?prompt=" + message.message;
 		const options = {
@@ -71,6 +73,7 @@ const ChatPanel = () => {
 		}
 	}
 
+	// Low quality chatbot
 	async function getThirdBotResponse(message) {
 		// Using robomatic.ai
 
