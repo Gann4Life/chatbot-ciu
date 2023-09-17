@@ -27,7 +27,11 @@ const MessageInputArea = ({addNewMessageFunction}) => {
 	return (
 		<div className="message-input-area">
 			<form onSubmit={sendMessage}>
-				<input id="inputMessage" type="text" placeholder="¡Hola! ¿Qué tal?"/>
+				<input
+					id="inputMessage"
+					type="text"
+					placeholder="Escribe tu mensaje..."
+				/>
 				<button type="submit">Send</button>
 			</form>
 		</div>

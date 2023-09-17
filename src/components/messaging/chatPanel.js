@@ -7,12 +7,21 @@ const ChatPanel = () => {
 	const [ messages, setMessages ] = useState([])
 
 	const botProfileURL = "https://dthezntil550i.cloudfront.net/35/0023927117/e62cb797-db81-4f82-8320-388f910b38ec.jpg"
-	const userProfileURL = "";
+	const userProfileURL = "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png";
 
 	function sendMessageAsUser(newMessage) {
-		newMessage.profileURL = "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png";
+		newMessage.profileURL = userProfileURL;
 		logNewMessage(newMessage);
-		getThirdBotResponse(newMessage);
+		getFirstBotResponse(newMessage);
+	}
+
+	function sendMessageAsBot(newMessage) {
+		const botMessage = {
+			message: newMessage,
+			author: "BOT",
+			profileURL: botProfileURL
+		}
+		logNewMessage(botMessage)
 	}
 
 	function logNewMessage(newMessage) {
@@ -35,14 +44,7 @@ const ChatPanel = () => {
 			const result = await response.text();
 			const resultJSON = JSON.parse(result)
 
-			const botMessage = {
-				message: resultJSON.chatbot.response,
-				author: "BOT",
-				profileURL: botProfileURL
-			}
-
-			logNewMessage(botMessage)
-			console.log(resultJSON);
+			sendMessageAsBot(resultJSON.chatbot.response)
 		} catch (error) {
 			console.error(error);
 			logNewMessage({message: "Sorry, I can't answer right now.", author: "BOT", profileURL: botProfileURL})
@@ -62,14 +64,7 @@ const ChatPanel = () => {
 		try {
 			const response = await fetch(url, options);
 			const result = await response.text();
-
-			const botMessage = {
-				message: result,
-				author: "BOT",
-				profileURL: botProfileURL
-			}
-
-			logNewMessage(botMessage);
+			sendMessageAsBot(result)
 		} catch (error) {
 			console.error(error);
 		}
@@ -103,15 +98,7 @@ const ChatPanel = () => {
 			const response = await fetch(url, options);
 			const result = await response.text();
 			const resultJSON = JSON.parse(result);
-
-			const botMessage = {
-				message: resultJSON.out,
-				author: resultJSON.who,
-				profileURL: botProfileURL
-			}
-
-			logNewMessage(botMessage)
-
+			sendMessageAsBot(resultJSON.out)
 		} catch (error) {
 			console.error(error);
 		}
