@@ -12,7 +12,7 @@ const ChatPanel = () => {
 	function sendMessageAsUser(newMessage) {
 		newMessage.profileURL = userProfileURL;
 		logNewMessage(newMessage);
-		getFirstBotResponse(newMessage);
+		getSecondBotResponse(newMessage);
 	}
 
 	function sendMessageAsBot(newMessage) {
@@ -47,7 +47,7 @@ const ChatPanel = () => {
 			sendMessageAsBot(resultJSON.chatbot.response)
 		} catch (error) {
 			console.error(error);
-			logNewMessage({message: "Sorry, I can't answer right now.", author: "BOT", profileURL: botProfileURL})
+			sendMessageAsBot("Lo siento, no puedo responderte ahora mismo.");
 		}
 	}
 
@@ -67,6 +67,7 @@ const ChatPanel = () => {
 			sendMessageAsBot(result)
 		} catch (error) {
 			console.error(error);
+			sendMessageAsBot("Lo siento, no puedo responderte ahora mismo.");
 		}
 	}
 
@@ -101,6 +102,7 @@ const ChatPanel = () => {
 			sendMessageAsBot(resultJSON.out)
 		} catch (error) {
 			console.error(error);
+			sendMessageAsBot("Lo siento, no puedo responderte ahora mismo.");
 		}
 	}
 
