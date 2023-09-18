@@ -7,8 +7,18 @@ const Message = ({profileURL, message, author, date}) => {
 				<img src={profileURL} alt=""/>
 			</div>
 			<div className="message-bubble">
-				{/*<p>{author ? author + " says:" : ""}</p>*/}
-				<p>{message}</p>
+				{!message
+					?
+					<div>
+						<div className="typing-message">
+							<span></span>
+							<span></span>
+							<span></span>
+						</div>
+					</div>
+					:
+					<p>{message}</p>
+				}
 			</div>
 		</div>
 	);
