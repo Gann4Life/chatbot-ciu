@@ -3,8 +3,8 @@ export const getChatbotAnswerFromPrompt = async (prompt) => {
 	try {
 		// USE ONLY ONE OF THE FOLLOWING FUNCTIONS
 
-		return await lowQualityResponse(prompt);
-		// return await midQualityResponse(prompt);
+		// return await lowQualityResponse(prompt);
+		return await midQualityResponse(prompt);
 		// return await highQualityResponse(prompt);
 	} catch (error) {
 		console.log(error);
