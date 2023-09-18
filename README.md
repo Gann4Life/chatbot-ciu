@@ -1,3 +1,14 @@
+# Overview
+The main idea of this project is to create a frontend application that allows you to talk with a chat-bot.
+The answers are obtained from at least 3 different APIs for different levels of quality.
+I am using the best quality API for the final version of the project, but for testing purposes, I'm using a "low quality" API in the `dev` branch, and a "mid-quality" API in the `main` branch.
+
+The APIs used are:
+- [ChatGPT Bot](https://rapidapi.com/ashutosh05/api/chat-gpt-ai-bot) (in `release` branch)
+- [AI Chatbot](https://rapidapi.com/farish978/api/ai-chatbot) (in `main` branch)
+- [robomatic.ai](https://rapidapi.com/infradrive-infradrive-default/api/robomatic-ai) (in `dev` branch)
+
+---
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
