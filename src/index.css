@@ -91,8 +91,33 @@ body {
     /*box-shadow: 5px -5px 10px #00000030;*/
 }
 
+.typing-message span {
+    width: 5px;
+    height: 5px;
+    margin: 0 1px;
+    background: var(--main-color);
+    border-radius: 100%;
+    display: inline-block;
+    animation: dots infinite 1s ease-in-out;
+}
+
+.typing-message span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.typing-message span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes dots {
+    50% {
+        opacity: 0;
+        transform: scale(0.7) translateY(2px);
+    }
+}
+
 .chat-panel {
-    padding: 0px 10%;
+    padding: 0 10%;
     margin-top: 50px;
 
     transition: padding 1s;
