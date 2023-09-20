@@ -1,5 +1,5 @@
 export const botProfilePicture = "https://avatars.githubusercontent.com/u/56666653?v=4"
-export const welcomeMessage = "¡Hola! ¿Cómo puedo ayudarte?"
+export const welcomeMessage = "You're currently on the 'dev' branch. Got something to say?"
 
 export const getChatbotAnswerFromPrompt = async (prompt) => {
 
