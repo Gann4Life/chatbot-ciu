@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from "react";
+import React, {useEffect, useRef } from "react";
 import Message from "./message"
 import { botProfileURL } from "./chatPanel";
 
@@ -39,7 +39,7 @@ const ChatArea = ({messagesList, isTyping}) => {
 				: ""
 			}
 
-			<div ref={ref}></div>
+			<div ref={ref} id="message-area-last"></div>
 		</div>
 	);
 }

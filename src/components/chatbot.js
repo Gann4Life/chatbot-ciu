@@ -1,3 +1,5 @@
+export const welcomeMessage = "You're currently on the 'dev' branch. Got something to say?"
+
 export const getChatbotAnswerFromPrompt = async (prompt) => {
 
 	try {

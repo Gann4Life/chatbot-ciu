@@ -1,15 +1,19 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import ChatArea from "./chatArea";
 import MessageInputArea from "./messageInputArea";
-import { getChatbotAnswerFromPrompt } from "../chatbot"
+import { getChatbotAnswerFromPrompt, welcomeMessage } from "../chatbot"
 
-export const botProfileURL = "https://dthezntil550i.cloudfront.net/35/0023927117/e62cb797-db81-4f82-8320-388f910b38ec.jpg"
-export const userProfileURL = "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png";
+export const botProfileURL = "https://avatars.githubusercontent.com/u/56666653?v=4"
+export const userProfileURL = "https://stpao.org/wp-content/uploads/2022/06/avatar-stpao.png";
 
 const ChatPanel = () => {
 
 	const [ messages, setMessages ] = useState([]);
 	const [ isTyping, setIsTyping] = useState(() => false);
+
+	useEffect(() => {
+		sendMessageAsBot(welcomeMessage)
+	}, []);
 
 	async function sendMessageAsUser(newMessage) {
 		newMessage.profileURL = userProfileURL;
@@ -19,17 +23,22 @@ const ChatPanel = () => {
 
 	async function sendMessageAsBotFromPrompt(prompt) {
 		setIsTyping(true);
+		const answer = await getChatbotAnswerFromPrompt(prompt);
+		sendMessageAsBot(answer);
+	}
+
+	function sendMessageAsBot(newMessage) {
 		const botMessage = {
-			message: await getChatbotAnswerFromPrompt(prompt),
+			message: newMessage,
 			author: "BOT",
-			profileURL: botProfileURL,
+			profileURL: botProfileURL
 		}
 		logNewMessage(botMessage);
 		setIsTyping(false);
 	}
 
 	function logNewMessage(newMessage) {
-		setMessages(messages => [...messages, newMessage])
+		setMessages(messages => [...messages, newMessage]);
 	}
 
 	return (
