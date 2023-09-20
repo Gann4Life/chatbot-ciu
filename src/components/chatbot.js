@@ -1,3 +1,6 @@
+export const botProfilePicture = "https://ih1.redbubble.net/image.1526089549.6385/st,small,507x507-pad,600x600,f8f8f8.jpg"
+export const welcomeMessage = "Have you seen any plants?"
+
 export const getChatbotAnswerFromPrompt = async (prompt) => {
 
 	try {

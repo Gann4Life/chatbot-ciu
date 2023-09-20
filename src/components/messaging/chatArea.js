@@ -1,6 +1,6 @@
-import React, {useEffect, useRef, useState} from "react";
+import React, {useEffect, useRef } from "react";
 import Message from "./message"
-import { botProfileURL } from "./chatPanel";
+import { botProfilePicture } from "../chatbot";
 
 const ChatArea = ({messagesList, isTyping}) => {
 
@@ -35,11 +35,11 @@ const ChatArea = ({messagesList, isTyping}) => {
 				and hide it when its true (when the actual message gets sent).
 				*/
 				isTyping
-				? <Message profileURL={botProfileURL}/>
+				? <Message profileURL={botProfilePicture}/>
 				: ""
 			}
 
-			<div ref={ref}></div>
+			<div ref={ref} id="message-area-last"></div>
 		</div>
 	);
 }

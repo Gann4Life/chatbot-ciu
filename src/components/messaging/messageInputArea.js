@@ -9,6 +9,7 @@ const MessageInputArea = ({addNewMessageFunction}) => {
 
 		if(!message)
 		{
+			// This shouldn't be required thanks to the form, but who knows...
 			alert("Please provide a message.");
 			return;
 		}
@@ -25,16 +26,15 @@ const MessageInputArea = ({addNewMessageFunction}) => {
 	}
 
 	return (
-		<div className="message-input-area">
-			<form onSubmit={sendMessage}>
-				<input
-					id="inputMessage"
-					type="text"
-					placeholder="Escribe tu mensaje..."
-				/>
-				<button type="submit">Send</button>
-			</form>
-		</div>
+		<form className="message-input-area" onSubmit={sendMessage}>
+			<input
+				id="inputMessage"
+				required="true"
+				type="text"
+				placeholder="Escribe tu mensaje..."
+			/>
+			<button type="submit">Enviar</button>
+		</form>
 	);
 }
 
